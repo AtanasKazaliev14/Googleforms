@@ -1,1 +1,25 @@
+import streamlit as st
 
+st.title(" Мини Google Формуляр")
+st.write("Отговорете на въпросите:")
+score = 0
+q1 = st.text_input("1️ Коя е столицата на България?")
+if q1.strip().lower() == "софия":
+    score += 1
+q2 = st.text_input("Коя е най-дългата река в България?")
+if q2.strip().lower() == "искар":
+    score += 1
+q3 = st.text_input(" През коя година е Освобождението на България?")
+if q3.strip() == "1878":
+    score += 1
+q4 = st.text_input("Кой е първият български цар?")
+if q4.strip().lower() in ["борис i", "борис първи", "борис 1"]:
+    score += 1
+if st.button("Провери резултата"):
+    st.write(f"Вашият резултат е: **{score} / 4**")
+if score == 4:
+  st.success("Отлично! Всички отговори са верни!")
+elif score >= 2:
+  st.warning("Добре, но можеш и по-добре!")
+else:
+  st.error("Трябва да повториш материала!")
